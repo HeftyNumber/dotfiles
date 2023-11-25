@@ -1,0 +1,76 @@
+#!/bin/bash
+# Sources: https://tldp.org/LDP/abs/html/sample-bashrc.html, https://www.webpro.nl/articles/getting-started-with-dotfiles
+# -> Prevents accidentally clobbering files.
+alias rm='rm -i'    # promt before every removal
+alias cp='cp -i'    # prompts before overwriting a file
+alias mv='mv -i'    # prompts before overwriting a file
+# -p is parents: no error if parent exists, make parent directories as needed, with their file modes unaffected by any -m option.
+alias mkdir='mkdir -p'
+
+# Makes a more readable output with select programs
+alias du='du -kh'   # ncdu is better
+alias df='df -kTh'  # duf is better
+alias mounted='mount |column -t' # Shows what devices are mounted in a clean way 
+alias aliases="alias | sed 's/=.*//'" # Pretty print all declared alias
+alias functions="declare -f | grep -i '^[a-z].* ()' | sed 's/{$//'" # Pretty print declared functions
+alias paths='echo -e ${PATH//:/\\n}' # Pretty print the $PATH in a easier to read form
+alias printenv='printenv | sort | grep -E '^[A-Za-z_]+[^=]+'' # Make it easier to see what is in the environment
+
+# Various list directory aliases
+alias ls='ls -h --color=auto --group-directories-first'    # standard ls default of human readable and with color
+alias lx='ls -lXB'         # Sort by extension.
+alias lk='ls -lSr'         # Sort by size, biggest last.
+alias lt='ls -ltr'         # Sort by date, most recent last.
+alias lc='ls -ltcr'        # Sort by/show change time,most recent last.
+alias lu='ls -ltur'        # Sort by/show access time,most recent last.
+
+# The ubiquitous 'll': directories first, with alphanumeric sorting:
+alias ll='ls -lv --group-directories-first'
+alias lr='ll -R'           # Recursive ls.
+alias l='ll -A'            # Show hidden files.
+alias l.='ls -d .* --group-directories-first'        # List only dotfiles and dotdirectories
+alias tree='tree -Ch --du' # Show a graphical tree with file and directory sizes
+
+# Various change directory aliases
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+
+# Miscellaneous
+alias weather='curl wttr.in' # show a nice weather report in the terminal from an internet site
+# Check if bat is installed and alias cat to bat if true
+if ( havei bat &> /dev/null)
+  then alias cat='bat' # use bat instead of cat to look at files
+fi
+alias cls='clear'  # cls is how the TRS-80 cleared the screen
+alias diff='diff --color=auto'
+
+# Always enable colored `grep` output
+# Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Uses cpupower-gui to change power levels from command line
+# Check if cpupower-gui is installed and create aliases if true
+if ( havei cpupower-gui &> /dev/null)
+  then
+    alias perform='cpupower-gui -p'
+    alias balance='cpupower-gui -b'
+fi
+# Turn on/off the KDE Compositor
+alias offCompositor='qdbus org.kde.KWin /Compositor suspend'
+alias onCompositor='qdbus org.kde.KWin /Compositor resume'
+
+# opens a file for editing using a gui (Kate) from command line - uses _open_files_for_editing in .bash_functions
+alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
+# runs meld at root level do diff two text files  . . . I think - comes with EOS installation
+# alias pacdiff=eos-pacdiff
+
+# This alias is used to managing the dotfiles git repository
+alias dotcfg='/usr/bin/git --git-dir=$HOME/.dotcfg/ --work-tree=$HOME'
+
+# Mount remote systems
+[[ "$HOSTNAME" != "z620" ]] && alias z620='ssh -X mfw@z620.local' # Don't create this alias if the host machine is the z620

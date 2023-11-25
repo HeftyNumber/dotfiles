@@ -1,0 +1,20 @@
+#!/bin/bash
+# Make vim the default editor.
+export EDITOR='vim'
+
+# Adds stuff to the standard path
+export PATH="$HOME/Scripts:$PATH"
+
+############# Update colors in less, makes man pages prettier #################
+export MANPAGER="less -R -X --use-color -Dd+r -Du+b";
+export MANROFFOPT="-P -c"
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768'
+export HISTFILESIZE="${HISTSIZE}"
+export SAVEHIST=4096
+export HISTCONTROL=ignoredups:erasedups
+
+# Enable colors
+export CLICOLOR=1
+
