@@ -64,6 +64,12 @@ fi
 alias offCompositor='qdbus org.kde.KWin /Compositor suspend'
 alias onCompositor='qdbus org.kde.KWin /Compositor resume'
 
+# Check if pinfo is installed and alias it to info if available
+if ( havei pinfo &> /dev/null)
+   then
+     alias info='pinfo'
+fi
+
 # opens a file for editing using a gui (Kate) from command line - uses _open_files_for_editing in .bash_functions
 alias ef='_open_files_for_editing'     # 'ef' opens given file(s) for editing
 # runs meld at root level do diff two text files  . . . I think - comes with EOS installation
