@@ -1,0 +1,17 @@
+{
+    "output": {
+        "blocklist": [],
+        "filter#0": {
+            "bypass": false,
+            "frequency": 5500.0,
+            "inertia": 60.0,
+            "input-gain": 0.0,
+            "mode": "12dB/oct Bandreject",
+            "output-gain": 8.0,
+            "resonance": 6.0
+        },
+        "plugins_order": [
+            "filter#0"
+        ]
+    }
+}
