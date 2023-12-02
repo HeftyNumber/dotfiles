@@ -1,7 +1,7 @@
 #!/bin/bash
 # Sources: https://tldp.org/LDP/abs/html/sample-bashrc.html, https://www.webpro.nl/articles/getting-started-with-dotfiles
 # -> Prevents accidentally clobbering files.
-alias rm='rm -i'    # promt before every removal
+#alias rm='rm -i'    # promt before every removal
 alias cp='cp -i'    # prompts before overwriting a file
 alias mv='mv -i'    # prompts before overwriting a file
 # -p is parents: no error if parent exists, make parent directories as needed, with their file modes unaffected by any -m option.
