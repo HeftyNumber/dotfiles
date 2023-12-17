@@ -40,10 +40,6 @@ alias .....='cd ../../../../'
 
 # Miscellaneous
 alias weather='curl wttr.in' # show a nice weather report in the terminal from an internet site
-# Check if bat is installed and alias cat to bat if true
-if ( havei bat &> /dev/null)
-  then alias cat='bat' # use bat instead of cat to look at files
-fi
 alias cls='clear'  # cls is how the TRS-80 cleared the screen
 alias diff='diff --color=auto'
 

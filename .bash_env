@@ -18,3 +18,5 @@ export HISTCONTROL=ignoredups:erasedups
 # Enable colors
 export CLICOLOR=1
 
+# Use of make uses total number of available cores + 1
+export MAKEFLAGS="-j$(expr $(nproc) \+ 1)"
