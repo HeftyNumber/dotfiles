@@ -1,6 +1,6 @@
 # Save a list of all explicitly installed packages
-pacman -Qqme > $HOME/Documents/AUR.lst
-pacman -Qqe | grep -v "$(pacman -Qqm)"  > $HOME/Documents/pacman.lst
+pacman -Qqme > $HOME/.myconfig/installFiles/AUR.lst
+pacman -Qqe | grep -v "$(pacman -Qqm)"  > $HOME/.myconfig/installFiles/pacman.lst
 # to reinstall files: cat pacman.lst | xargs pacman -S --needed --noconfirm
 # The next line lists installed packages with a description of what each package is
-expac -H M '%-20n\t%10d' $(pacman -Qe) > $HOME/Documents/pacman2.lst
+expac -H M '%-20n\t%10d' $(pacman -Qe) > $HOME/.myconfig/installFiles/pacman2.lst
