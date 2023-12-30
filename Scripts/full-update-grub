@@ -4,5 +4,5 @@
 #incompatibilities, it is advised to run both, installation and generation
 #of configuration:
 # Updates grub
-sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --no-nvram 
+sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
